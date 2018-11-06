@@ -1,0 +1,49 @@
+# grafo
+#include<stdio.h>
+#include<conio.h>
+
+
+bool tem_ligacao(int v1, int v2);
+void mostrar_grafo();
+
+int grafo[5][5] = {{0,0,1,0,0},{0,0,1,0,0},{1,1,0,1,1},{0,0,1,0,1},{0,0,1,1,0}};
+
+char mapa_letra[] = {"ABCDE"};
+	
+main()
+{
+	int n;
+	
+	n = tem_ligacao(0,2);
+	
+	mostrar_grafo();
+	
+	printf("%d",n);
+	
+	
+	return 0;
+}
+
+bool tem_ligacao(int v1, int v2)
+{
+	if(grafo[v1][v2])
+	return true;
+	return false;
+}
+
+void mostrar_grafo()
+{
+	int i, j;
+	for(i=0; i<5;i++)
+	{
+		printf("caminho de %c:\t",mapa_letra[i]);
+		
+		for(j=0;j<5;j++)
+		{
+			if(grafo[i][j]!=-1)
+			printf("%c\t",mapa_letra[grafo[i][j]]);
+		}
+		printf("\n");	
+	}	
+	
+}
